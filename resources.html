@@ -262,8 +262,12 @@
                 <div style="background: white; padding: 3rem; border-radius: 12px; max-width: 500px; width: 90%;">
                     <h2 style="margin-bottom: 1rem;">Download: <span id="resource-name"></span></h2>
                     <p style="margin-bottom: 2rem;">Enter your email to get instant access to this resource.</p>
-                    <form class="email-form" onsubmit="handleDownload(event)">
-                        <input type="email" placeholder="Enter your email" required style="width: 100%; margin-bottom: 1rem;">
+                    <form action="https://formsubmit.co/karanpuri1406@gmail.com" method="POST" class="email-form" onsubmit="handleDownload(event)">
+                        <input type="email" name="email" placeholder="Enter your email" required style="width: 100%; margin-bottom: 1rem;">
+                        <input type="hidden" name="_subject" value="Resource Download Request - TractionSEO">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="source" value="resources-page">
+                        <input type="hidden" name="resource" id="hidden-resource-name">
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Get Instant Access</button>
                     </form>
                     <button onclick="closeDownloadModal()" style="margin-top: 1rem; background: none; border: none; color: var(--light-text); cursor: pointer; width: 100%;">Cancel</button>
