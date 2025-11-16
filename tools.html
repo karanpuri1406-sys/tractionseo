@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free AI-powered SEO tools for Indian businesses. Keyword calculator, ROI calculator, SEO checker, and more. Get instant insights.">
+    <title>Free AI SEO Tools for Indian Businesses | TractionSEO</title>
+    <link rel="stylesheet" href="css/style.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <span>TractionSEO</span>
+                </a>
+                <button class="mobile-menu-toggle">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="guide.html">Complete Guide</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="tools.html">Free Tools</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="directory.html">Directory</a></li>
+                        <li><a href="coaching.html" style="background: #F97316; padding: 0.5rem 1rem; border-radius: 6px;">Get Coaching</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section style="padding: 3rem 0; background: linear-gradient(135deg, #2563EB 0%, #9333EA 100%); color: white; text-align: center;">
+        <div class="container">
+            <h1>Free AI-Powered SEO Tools</h1>
+            <p style="font-size: 1.2rem; margin-top: 1rem;">Instant insights for your SEO strategy. No signup required.</p>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <!-- Tool 1: Keyword Difficulty Calculator -->
+            <div class="tool-container" id="keyword-calculator">
+                <h2>🎯 Keyword Difficulty Calculator</h2>
+                <p>Analyze keyword difficulty, search volume, and competition for any keyword in Indian cities.</p>
+                
+                <div style="margin-top: 2rem;">
+                    <label for="keyword-input" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Enter Keyword:</label>
+                    <input type="text" id="keyword-input" class="tool-input" placeholder="e.g., digital marketing agency">
+                    
+                    <label for="location-select" style="display: block; margin-bottom: 0.5rem; margin-top: 1rem; font-weight: 600;">Select Location:</label>
+                    <select id="location-select" class="tool-select">
+                        <option value="India">All India</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Bangalore">Bangalore</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Ahmedabad">Ahmedabad</option>
+                        <option value="Jaipur">Jaipur</option>
+                    </select>
+                    
+                    <button class="btn btn-primary" style="margin-top: 1rem;" onclick="calculateKeywordDifficulty()">Calculate Difficulty</button>
+                </div>
+                
+                <div id="keyword-result" class="tool-result" style="display: none;"></div>
+            </div>
+
+            <!-- Tool 2: SEO ROI Calculator -->
+            <div class="tool-container" id="roi-calculator">
+                <h2>💰 SEO ROI Calculator</h2>
+                <p>Calculate potential revenue increase from SEO investment. See how SEO compares to paid ads.</p>
+                
+                <div style="margin-top: 2rem;">
+                    <label for="current-traffic" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Current Monthly Traffic:</label>
+                    <input type="number" id="current-traffic" class="tool-input" placeholder="e.g., 1000">
+                    
+                    <label for="conversion-rate" style="display: block; margin-bottom: 0.5rem; margin-top: 1rem; font-weight: 600;">Conversion Rate (%):</label>
+                    <input type="number" id="conversion-rate" class="tool-input" placeholder="e.g., 2" step="0.1">
+                    
+                    <label for="order-value" style="display: block; margin-bottom: 0.5rem; margin-top: 1rem; font-weight: 600;">Average Order Value (₹):</label>
+                    <input type="number" id="order-value" class="tool-input" placeholder="e.g., 5000">
+                    
+                    <button class="btn btn-primary" style="margin-top: 1rem;" onclick="calculateROI()">Calculate ROI</button>
+                </div>
+                
+                <div id="roi-result" class="tool-result" style="display: none;"></div>
+            </div>
+
+            <!-- Tool 3: Website SEO Score Checker -->
+            <div class="tool-container" id="seo-checker">
+                <h2>📊 Website SEO Score Checker</h2>
+                <p>Get instant SEO audit of your website. Identify issues and get actionable recommendations.</p>
+                
+                <div style="margin-top: 2rem;" id="seo-checker-tool">
+                    <label for="website-url" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Enter Website URL:</label>
+                    <input type="url" id="website-url" class="tool-input" placeholder="https://yourwebsite.com">
+                    
+                    <button class="btn btn-primary" style="margin-top: 1rem;" onclick="checkSEOScore()">Check SEO Score</button>
+                </div>
+                
+                <div id="seo-score-result" class="tool-result" style="display: none;"></div>
+            </div>
+
+            <!-- Tool 4: AI Prompt Generator -->
+            <div class="tool-container" id="prompt-generator">
+                <h2>✨ AI Prompt Generator for SEO</h2>
+                <p>Generate ready-to-use ChatGPT prompts for keyword research, content creation, and more.</p>
+                
+                <div style="margin-top: 2rem;">
+                    <label for="prompt-task" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Select Task:</label>
+                    <select id="prompt-task" class="tool-select">
+                        <option value="keyword">Keyword Research</option>
+                        <option value="content">Content Outline Creation</option>
+                        <option value="meta">Meta Description Writing</option>
+                        <option value="competitor">Competitor Analysis</option>
+                        <option value="local">Local SEO Strategy</option>
+                    </select>
+                    
+                    <button class="btn btn-primary" style="margin-top: 1rem;" onclick="generatePrompt()">Generate Prompt</button>
+                </div>
+                
+                <div id="prompt-result" class="tool-result" style="display: none;"></div>
+            </div>
+
+            <!-- Tool 5: Local SEO Readiness Quiz -->
+            <div class="tool-container" id="local-quiz">
+                <h2>📍 Local SEO Readiness Quiz</h2>
+                <p>Assess your local SEO readiness and get a personalized action plan.</p>
+                
+                <div id="quiz-intro" style="margin-top: 2rem;">
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Answer 10 quick questions to discover how ready your business is for local search success.</p>
+                    <button class="btn btn-primary" onclick="startQuiz()">Start Quiz</button>
+                </div>
+                
+                <div id="quiz-questions" style="display: none; margin-top: 2rem;">
+                    <form id="local-seo-quiz">
+                        <div style="margin-bottom: 2rem; padding: 1.5rem; background: #F9FAFB; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 1rem;">1. Have you claimed and verified your Google Business Profile?</p>
+                            <label style="display: block; margin-bottom: 0.5rem;">
+                                <input type="radio" name="q1" value="yes" required> Yes
+                            </label>
+                            <label style="display: block;">
+                                <input type="radio" name="q1" value="no"> No
+                            </label>
+                        </div>
+
+                        <div style="margin-bottom: 2rem; padding: 1.5rem; background: #F9FAFB; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 1rem;">2. Is your business information (NAP) consistent across all online platforms?</p>
+                            <label style="display: block; margin-bottom: 0.5rem;">
+                                <input type="radio" name="q2" value="yes" required> Yes
+                            </label>
+                            <label style="display: block;">
+                                <input type="radio" name="q2" value="no"> No
+                            </label>
+                        </div>
+
+                        <div style="margin-bottom: 2rem; padding: 1.5rem; background: #F9FAFB; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 1rem;">3. Do you have at least 10 Google reviews?</p>
+                            <label style="display: block; margin-bottom: 0.5rem;">
+                                <input type="radio" name="q3" value="yes" required> Yes
+                            </label>
+                            <label style="display: block;">
+                                <input type="radio" name="q3" value="no"> No
+                            </label>
+                        </div>
+
+                        <div style="margin-bottom: 2rem; padding: 1.5rem; background: #F9FAFB; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 1rem;">4. Does your website have location-specific pages?</p>
+                            <label style="display: block; margin-bottom: 0.5rem;">
+                                <input type="radio" name="q4" value="yes" required> Yes
+                            </label>
+                            <label style="display: block;">
+                                <input type="radio" name="q4" value="no"> No
+                            </label>
+                        </div>
+
+                        <div style="margin-bottom: 2rem; padding: 1.5rem; background: #F9FAFB; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 1rem;">5. Is your website mobile-friendly?</p>
+                            <label style="display: block; margin-bottom: 0.5rem;">
+                                <input type="radio" name="q5" value="yes" required> Yes
+                            </label>
+                            <label style="display: block;">
+                                <input type="radio" name="q5" value="no"> No
+                            </label>
+                        </div>
+
+                        <div style="margin-bottom: 2rem; padding: 1.5rem; background: #F9FAFB; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 1rem;">6. Are you listed on local directories (JustDial, Sulekha, etc.)?</p>
+                            <label style="display: block; margin-bottom: 0.5rem;">
+                                <input type="radio" name="q6" value="yes" required> Yes
+                            </label>
+                            <label style="display: block;">
+                                <input type="radio" name="q6" value="no"> No
+                            </label>
+                        </div>
+
+                        <div style="margin-bottom: 2rem; padding: 1.5rem; background: #F9FAFB; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 1rem;">7. Do you have local schema markup on your website?</p>
+                            <label style="display: block; margin-bottom: 0.5rem;">
+                                <input type="radio" name="q7" value="yes" required> Yes
+                            </label>
+                            <label style="display: block;">
+                                <input type="radio" name="q7" value="no"> No
+                            </label>
+                        </div>
+
+                        <div style="margin-bottom: 2rem; padding: 1.5rem; background: #F9FAFB; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 1rem;">8. Do you regularly post updates on your Google Business Profile?</p>
+                            <label style="display: block; margin-bottom: 0.5rem;">
+                                <input type="radio" name="q8" value="yes" required> Yes
+                            </label>
+                            <label style="display: block;">
+                                <input type="radio" name="q8" value="no"> No
+                            </label>
+                        </div>
+
+                        <div style="margin-bottom: 2rem; padding: 1.5rem; background: #F9FAFB; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 1rem;">9. Do you respond to all customer reviews?</p>
+                            <label style="display: block; margin-bottom: 0.5rem;">
+                                <input type="radio" name="q9" value="yes" required> Yes
+                            </label>
+                            <label style="display: block;">
+                                <input type="radio" name="q9" value="no"> No
+                            </label>
+                        </div>
+
+                        <div style="margin-bottom: 2rem; padding: 1.5rem; background: #F9FAFB; border-radius: 8px;">
+                            <p style="font-weight: 600; margin-bottom: 1rem;">10. Do you create local content (blogs about local events, news)?</p>
+                            <label style="display: block; margin-bottom: 0.5rem;">
+                                <input type="radio" name="q10" value="yes" required> Yes
+                            </label>
+                            <label style="display: block;">
+                                <input type="radio" name="q10" value="no"> No
+                            </label>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" onclick="submitQuiz()">Get My Results</button>
+                    </form>
+                </div>
+                
+                <div id="quiz-result" class="tool-result" style="display: none;"></div>
+            </div>
+
+            <!-- CTA Section -->
+            <div style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); padding: 3rem; border-radius: 12px; color: white; text-align: center; margin-top: 3rem;">
+                <h2 style="color: white; margin-bottom: 1rem;">Need More Advanced Tools?</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">Get access to premium AI SEO tools and personalized coaching to accelerate your results.</p>
+                <a href="coaching.html" class="btn btn-primary" style="font-size: 1.1rem;">Explore Coaching Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TractionSEO</h4>
+                    <p>Your ultimate AI-powered SEO resource hub for Indian businesses.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="guide.html">Complete SEO Guide</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="tools.html">Free Tools</a></li>
+                        <li><a href="glossary.html">Glossary</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TractionSEO. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Show result divs when tools are used
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultDivs = document.querySelectorAll('.tool-result');
+            resultDivs.forEach(div => {
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.target.innerHTML.trim() !== '') {
+                            mutation.target.style.display = 'block';
+                        }
+                    });
+                });
+                observer.observe(div, { childList: true, subtree: true });
+            });
+        });
+    </script>
+</body>
+</html>
