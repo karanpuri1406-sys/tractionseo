@@ -375,11 +375,29 @@
     <script src="js/main.js"></script>
     <script>
         function showDownloadModal(resourceName, resourceFile) {
-            document.getElementById('resource-name').textContent = resourceName;
-            document.getElementById('resource-file').value = resourceFile || resourceName;
+            alert('Button clicked! Opening modal for: ' + resourceName);
+            console.log('showDownloadModal called with:', resourceName, resourceFile);
+            const resourceNameEl = document.getElementById('resource-name');
+            const resourceFileEl = document.getElementById('resource-file');
             const modal = document.getElementById('download-modal');
+            
+            console.log('Elements found:', {
+                resourceNameEl: !!resourceNameEl,
+                resourceFileEl: !!resourceFileEl,
+                modal: !!modal
+            });
+            
+            if (!resourceNameEl || !resourceFileEl || !modal) {
+                console.error('Missing required elements!');
+                alert('Error: Modal elements not found. Please refresh the page.');
+                return;
+            }
+            
+            resourceNameEl.textContent = resourceName;
+            resourceFileEl.value = resourceFile || resourceName;
             modal.style.display = 'block';
             modal.style.overflow = 'auto';
+            console.log('Modal should now be visible');
         }
 
         function closeDownloadModal() {
@@ -388,12 +406,21 @@
         }
 
         // Handle form submission
-        document.getElementById('download-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadForm = document.getElementById('download-form');
+            if (!downloadForm) {
+                console.error('Download form not found!');
+                return;
+            }
             
-            const formData = new FormData(this);
-            const email = formData.get('email');
-            const resource = formData.get('resource');
+            downloadForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                console.log('Form submitted!');
+                
+                const formData = new FormData(this);
+                const email = formData.get('email');
+                const resource = formData.get('resource');
+                console.log('Form data:', { email, resource });
             
             // Store in localStorage as backup
             try {
@@ -438,7 +465,9 @@
                     alert('There was an issue submitting your request. Please try again.');
                 }
             }).catch(error => {
+                console.error('Fetch error:', error);
                 alert('There was an error. Please try again later.');
+            });
             });
         });
 
