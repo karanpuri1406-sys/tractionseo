@@ -127,6 +127,24 @@
                 <div id="prompt-result" class="tool-result" style="display: none;"></div>
             </div>
 
+            <!-- Tool 6: Content Optimizer -->
+            <div class="tool-container" id="content-optimizer">
+                <h2>📝 Content SEO Optimizer</h2>
+                <p>Analyze your content for SEO. Get keyword density, readability score, and optimization suggestions.</p>
+                
+                <div style="margin-top: 2rem;">
+                    <label for="target-keyword-optimizer" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Target Keyword:</label>
+                    <input type="text" id="target-keyword-optimizer" class="tool-input" placeholder="e.g., digital marketing services">
+                    
+                    <label for="content-text" style="display: block; margin-bottom: 0.5rem; margin-top: 1rem; font-weight: 600;">Your Content:</label>
+                    <textarea id="content-text" class="tool-input" placeholder="Paste your blog post, article, or webpage content here..." style="min-height: 200px; font-family: inherit;"></textarea>
+                    
+                    <button class="btn btn-primary" style="margin-top: 1rem;" onclick="analyzeContent()">Analyze Content</button>
+                </div>
+                
+                <div id="content-result" class="tool-result" style="display: none;"></div>
+            </div>
+
             <!-- Tool 5: Local SEO Readiness Quiz -->
             <div class="tool-container" id="local-quiz">
                 <h2>📍 Local SEO Readiness Quiz</h2>
