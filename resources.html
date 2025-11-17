@@ -317,8 +317,8 @@
             </div>
 
             <!-- Download Modal -->
-            <div id="download-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999;">
-                <div style="background: white; padding: 3rem; border-radius: 12px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin: 10% auto; position: relative;">
+            <div id="download-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; align-items: center; justify-content: center;">
+                <div style="background: white; padding: 3rem; border-radius: 12px; max-width: 500px; width: 90%; box-shadow: 0 10px 40px rgba(0,0,0,0.3); position: relative;">
                     <h2 style="margin-bottom: 1rem; color: #1F2937;">Download: <span id="resource-name"></span></h2>
                     <p style="margin-bottom: 2rem; color: #6B7280;">Enter your email to instantly download your free PDF resource. 100% free, no spam.</p>
                     <form id="download-form" action="https://formspree.io/f/xanalzkr" method="POST">
@@ -327,7 +327,7 @@
                         <input type="email" name="email" id="download-email" placeholder="Enter your email" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 1rem;">
                         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Get Instant Access →</button>
                     </form>
-                    <button onclick="closeDownloadModal()" style="margin-top: 1rem; background: none; border: none; color: var(--light-text); cursor: pointer; width: 100%; padding: 0.5rem;">Cancel</button>
+                    <button onclick="closeDownloadModal()" style="margin-top: 1rem; background: none; border: none; color: #6B7280; cursor: pointer; width: 100%; padding: 0.5rem;">Cancel</button>
                 </div>
             </div>
 
@@ -375,7 +375,6 @@
     <script src="js/main.js"></script>
     <script>
         function showDownloadModal(resourceName, resourceFile) {
-            alert('Button clicked! Opening modal for: ' + resourceName);
             console.log('showDownloadModal called with:', resourceName, resourceFile);
             const resourceNameEl = document.getElementById('resource-name');
             const resourceFileEl = document.getElementById('resource-file');
@@ -395,8 +394,7 @@
             
             resourceNameEl.textContent = resourceName;
             resourceFileEl.value = resourceFile || resourceName;
-            modal.style.display = 'block';
-            modal.style.overflow = 'auto';
+            modal.style.display = 'flex';
             console.log('Modal should now be visible');
         }
 
