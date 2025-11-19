@@ -410,6 +410,158 @@ function copyPrompt() {
     });
 }
 
+// Content Optimizer (Main - listed in tools)
+function analyzeContentMain() {
+    const keyword = document.getElementById('target-keyword-optimizer-main').value;
+    const content = document.getElementById('content-text-main').value;
+    
+    if (!keyword || !content) {
+        alert('Please enter both target keyword and content');
+        return;
+    }
+    
+    const result = performContentAnalysis(keyword, content);
+    document.getElementById('content-result-main').innerHTML = result;
+}
+
+// Content Optimizer (Secondary - kept for backward compatibility)
+function analyzeContent() {
+    const keyword = document.getElementById('target-keyword-optimizer').value;
+    const content = document.getElementById('content-text').value;
+    
+    if (!keyword || !content) {
+        alert('Please enter both target keyword and content');
+        return;
+    }
+    
+    const result = performContentAnalysis(keyword, content);
+    document.getElementById('content-result').innerHTML = result;
+}
+
+// Shared content analysis function
+function performContentAnalysis(keyword, content) {
+    // Calculate metrics
+    const words = content.trim().split(/\s+/).length;
+    const sentences = content.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+    const avgWordsPerSentence = Math.round(words / sentences);
+    
+    // Keyword density
+    const keywordLower = keyword.toLowerCase();
+    const contentLower = content.toLowerCase();
+    const keywordCount = (contentLower.match(new RegExp(keywordLower, 'g')) || []).length;
+    const keywordDensity = ((keywordCount / words) * 100).toFixed(2);
+    
+    // Readability score (Flesch Reading Ease approximation)
+    const syllables = words * 1.5; // Rough estimate
+    const readabilityScore = Math.max(0, Math.min(100, 
+        206.835 - 1.015 * (words / sentences) - 84.6 * (syllables / words)
+    )).toFixed(0);
+    
+    // Recommendations
+    const recommendations = [];
+    
+    if (keywordDensity < 0.5) {
+        recommendations.push('⚠️ Keyword density is too low. Include your target keyword more naturally (aim for 1-2%)');
+    } else if (keywordDensity > 3) {
+        recommendations.push('⚠️ Keyword density is too high. Reduce keyword usage to avoid over-optimization (aim for 1-2%)');
+    } else {
+        recommendations.push('✅ Keyword density is optimal (1-2%)');
+    }
+    
+    if (words < 300) {
+        recommendations.push('⚠️ Content is too short. Aim for at least 500-1000 words for better SEO');
+    } else if (words < 800) {
+        recommendations.push('⚡ Content length is decent. Consider expanding to 1000+ words for comprehensive coverage');
+    } else {
+        recommendations.push('✅ Content length is good (800+ words)');
+    }
+    
+    if (avgWordsPerSentence > 25) {
+        recommendations.push('⚠️ Sentences are too long. Break them into shorter sentences for better readability');
+    } else {
+        recommendations.push('✅ Sentence length is good');
+    }
+    
+    if (readabilityScore < 50) {
+        recommendations.push('⚠️ Content is difficult to read. Simplify language and sentence structure');
+    } else if (readabilityScore < 70) {
+        recommendations.push('⚡ Readability is moderate. Consider simplifying some complex sentences');
+    } else {
+        recommendations.push('✅ Content is easy to read');
+    }
+    
+    // Check for keyword in important places
+    const firstParagraph = content.substring(0, 200).toLowerCase();
+    if (!firstParagraph.includes(keywordLower)) {
+        recommendations.push('⚠️ Target keyword not found in first paragraph. Add it early for better SEO');
+    } else {
+        recommendations.push('✅ Keyword appears in opening paragraph');
+    }
+    
+    // Overall SEO score
+    let seoScore = 0;
+    if (keywordDensity >= 0.5 && keywordDensity <= 3) seoScore += 25;
+    if (words >= 500) seoScore += 25;
+    if (avgWordsPerSentence <= 25) seoScore += 15;
+    if (readabilityScore >= 60) seoScore += 20;
+    if (firstParagraph.includes(keywordLower)) seoScore += 15;
+    
+    const resultHTML = `
+        <h3>Content Analysis Results</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+            <div style="background: #F9FAFB; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">SEO Score</h4>
+                <div class="score" style="font-size: 2rem; font-weight: 700; color: ${seoScore >= 70 ? '#10B981' : seoScore >= 50 ? '#F59E0B' : '#EF4444'};">
+                    ${seoScore}/100
+                </div>
+            </div>
+            
+            <div style="background: #F9FAFB; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Word Count</h4>
+                <div style="font-size: 2rem; font-weight: 700;">${words}</div>
+            </div>
+            
+            <div style="background: #F9FAFB; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Keyword Density</h4>
+                <div style="font-size: 2rem; font-weight: 700; color: ${keywordDensity >= 1 && keywordDensity <= 2 ? '#10B981' : '#F59E0B'};">
+                    ${keywordDensity}%
+                </div>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem;">(${keywordCount} times)</p>
+            </div>
+            
+            <div style="background: #F9FAFB; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">Readability</h4>
+                <div style="font-size: 2rem; font-weight: 700; color: ${readabilityScore >= 60 ? '#10B981' : '#F59E0B'};">
+                    ${readabilityScore}/100
+                </div>
+            </div>
+        </div>
+        
+        <h4 style="margin-top: 2rem; margin-bottom: 1rem;">📋 Optimization Recommendations:</h4>
+        <ul style="margin-left: 1.5rem; line-height: 1.8;">
+            ${recommendations.map(rec => `<li>${rec}</li>`).join('')}
+        </ul>
+        
+        <div style="margin-top: 2rem; padding: 1.5rem; background: #EEF2FF; border-left: 4px solid var(--primary-blue); border-radius: 4px;">
+            <h4 style="color: var(--primary-blue); margin-bottom: 0.5rem;">💡 Pro Tips:</h4>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                <li>Include LSI keywords (related terms) naturally throughout</li>
+                <li>Use your target keyword in H2/H3 headings</li>
+                <li>Add internal links to related content</li>
+                <li>Include external links to authoritative sources</li>
+                <li>Optimize meta title and description with target keyword</li>
+            </ul>
+        </div>
+        
+        <button class="btn btn-primary mt-2" onclick="window.location.href='resources.html'">
+            Download Free SEO Checklists
+        </button>
+    `;
+    
+    return resultHTML;
+}
+
 // Local SEO Quiz
 let quizAnswers = {};
 
