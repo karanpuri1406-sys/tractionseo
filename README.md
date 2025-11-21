@@ -2,7 +2,7 @@
 
 ## 🚀 Overview
 
-TractionSEO is a comprehensive, mobile-optimized mini-site designed to be the ultimate resource hub for Indian entrepreneurs and professionals looking to master AI-powered SEO. The site combines free tools, expert guides, downloadable resources, and personalized coaching to help businesses grow their organic traffic.
+TractionSEO is a comprehensive, mobile-optimized resource hub designed for students, professionals, and small businesses in India looking to learn AI-powered SEO. With affordable coaching starting at ₹4,999, free tools, practical guides, and downloadable resources, we make SEO education accessible to everyone—whether you're building a career or growing a business on a budget.
 
 ## 📋 Site Structure
 
@@ -50,7 +50,7 @@ TractionSEO is a comprehensive, mobile-optimized mini-site designed to be the ul
 3. **Website SEO Score Checker** - Instant site audit
 4. **AI Prompt Generator** - Ready-to-use ChatGPT prompts
 5. **Local SEO Readiness Quiz** - 10-question assessment
-6. **Content Optimizer** - Analyze content for SEO
+6. **Content SEO Optimizer** - Analyze content for SEO with keyword density & readability
 
 ## 📧 Lead Capture
 
@@ -89,20 +89,20 @@ All forms are configured to send leads to: **karanpuri1406@gmail.com**
 
 ## 💼 Coaching Packages
 
-### Starter - ₹9,999
-- 2 one-on-one sessions
-- Custom SEO strategy
-- Email support for 1 month
+### Foundation - ₹4,999
+- 2 one-on-one sessions (1.5 hours each)
+- SEO fundamentals & career roadmap
+- Perfect for students & beginners
 
-### Growth - ₹24,999 (Most Popular)
-- 5 one-on-one sessions
-- Complete implementation plan
-- Email + WhatsApp support for 3 months
+### Professional - ₹9,999 (Most Popular)
+- 5 one-on-one sessions (1.5 hours each)
+- Job-ready SEO training + portfolio projects
+- For career builders & freelancers
 
-### Scale - ₹49,999
-- 10 one-on-one sessions
-- Done-with-you implementation
-- Priority support for 6 months
+### Small Business - ₹19,999
+- 8 one-on-one sessions (1.5 hours each)
+- Complete SEO setup (done with you)
+- For small businesses & startups
 
 ## 🔧 Technical Implementation
 
@@ -151,12 +151,13 @@ Ready for integration with:
 
 ## 🎯 Target Audience
 
-- Small business owners in India
-- Digital marketing professionals
-- Freelancers and solopreneurs
-- Startups looking to scale organically
-- Age: 25-45
-- Tech-savvy but not necessarily SEO experts
+- College students interested in digital marketing careers
+- Working professionals looking to switch to SEO
+- Aspiring freelancers building their skillset
+- Small business owners who can't afford agencies
+- Startup founders on tight budgets
+- Age: 20-40
+- No prior SEO experience required
 
 ## 💡 Key Value Propositions
 
